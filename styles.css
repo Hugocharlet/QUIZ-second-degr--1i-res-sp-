@@ -1,0 +1,70 @@
+/* Variables CSS pour un thème sobre et modulaire (inspiré Gemini) */
+:root {
+    --color-primary: #4285F4; /* Bleu Google */
+    --color-secondary: #34A853; /* Vert Google */
+    --color-accent: #fbbc05; /* Jaune Google */
+    --color-bg-light: #f7f9fc; /* Arrière-plan très clair */
+    --color-text-dark: #3c4043; /* Texte gris foncé */
+    --color-border: #dadce0; /* Bordure subtile */
+    --color-selected: #e8f0fe; /* Bleu très clair pour la sélection/survol */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-light);
+}
+
+/* Conteneur principal du Quiz */
+.quiz-card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem; /* rounded-xl */
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.1), 0 1px 2px 0 rgba(60, 64, 67, 0.05); /* Ombre subtile */
+}
+
+/* Style des questions pour une graisse et une taille plus fines */
+#current-question-text {
+    font-size: 1.125rem; /* 18px - légèrement plus petit que la valeur par défaut de 'text-xl' (20px) */
+    font-weight: 500; /* Medium - plus fin que 'semibold' (600) */
+}
+
+/* Boutons d'options */
+.option-button {
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.03);
+}
+
+/* Effet de survol */
+.option-button:hover:not(:disabled) {
+    background-color: var(--color-selected);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px 0 rgba(60, 64, 67, 0.1);
+}
+
+/* Option sélectionnée */
+.selected-option {
+    background-color: var(--color-selected);
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* KaTeX Styling */
+.katex-display {
+    margin: 1.5rem 0 !important;
+}
+.katex {
+    color: var(--color-text-dark);
+    font-size: 1.125rem; /* text-lg */
+}
+
+/* Score Final */
+.score-circle {
+    background-color: var(--color-secondary); /* Vert de réussite */
+    transition: transform 0.3s ease;
+}
+.score-circle:hover {
+    transform: scale(1.05);
+}
