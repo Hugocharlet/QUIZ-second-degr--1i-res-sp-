@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Second Degré - Évaluation Finale</title>
+    <title>Quiz Suites arithmétiques et géométriques - Évaluation Finale</title>
     <!-- Chargement de Tailwind CSS pour l'esthétique et la réactivité -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configuration de KaTeX pour le rendu des équations -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" xintegrity="sha384-Gvrq5yHj/v4+4hV5R5Y5t+8+gS7hA/B9lE4gHlJ9dI/Y4Z+2WvE5Q==" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" xintegrity="sha384-c8I3PjM1Fv47D3n5jW8hJv8uP/B5p8uVp4/2uQ5Vq6t2Xf1o5w5O/k6w7A5Z6" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" xintegrity="sha384-+Fv1E8t+e3R4uN8mC7j3vD3VvD6z1N6p4G2B7xYv/n7fI/lG8V3Z8F7U9j6K5tF3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+        xintegrity="sha384-Gvrq5yHj/v4+4hV5R5Y5t+8+gS7hA/B9lE4gHlJ9dI/Y4Z+2WvE5Q==" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+        xintegrity="sha384-c8I3PjM1Fv47D3n5jW8hJv8uP/B5p8uVp4/2uQ5Vq6t2Xf1o5w5O/k6w7A5Z6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        xintegrity="sha384-+Fv1E8t+e3R4uN8mC7j3vD3VvD6z1N6p4G2B7xYv/n7fI/lG8V3Z8F7U9j6K5tF3"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,34 +23,37 @@
 
     <!-- Conteneur principal du Quiz -->
     <div id="quiz-container" class="w-full max-w-2xl bg-white rounded-xl p-8 quiz-card transition-all duration-300">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6 border-b pb-2">Évaluation : Fonctions du Second Degré</h1>
-        
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6 border-b pb-2">Évaluation : Fonctions du Second
+            Degré</h1>
+
         <!-- Zone d'affichage (Questions ou Résultats) -->
         <div id="main-area">
             <p class="text-center text-gray-500">Chargement des questions...</p>
         </div>
-        
+
     </div>
 
     <!-- 1. Importation du fichier de données des questions (DOIT être chargé en premier) -->
     <script src="questions.js"></script>
 
     <script type="text/javascript">
-        // --- LOGIQUE DU QUIZ ---
-        // La variable 'questions' est disponible ici grâce à l'import de questions.js
-        
+        // --- LOGIQUE DU QUIZ CORRIGÉE ---
+
         let currentQuestionIndex = 0;
         let score = 0;
-        let isAnswered = false; 
-        
+        let userSelectionIndex = null; // Stocke l'index de la réponse sélectionnée
+
         const mainArea = document.getElementById('main-area');
 
         // Démarrage
-        window.onload = function() {
+        window.onload = function () {
+            // Mise à jour du titre du quiz pour correspondre au sujet
+            document.querySelector('#quiz-container h1').textContent = 'Quiz : Suites Numériques';
+
             // Vérification de la disponibilité de 'questions'
             if (typeof questions === 'undefined' || questions.length === 0) {
-                 mainArea.innerHTML = '<p class="text-center text-red-500 font-bold">Erreur: Le fichier questions.js n\'a pas pu être chargé ou est vide.</p>';
-                 return;
+                mainArea.innerHTML = '<p class="text-center text-red-500 font-bold">Erreur: Le fichier questions.js n\'a pas pu être chargé ou est vide.</p>';
+                return;
             }
             renderQuestion();
         }
@@ -59,8 +68,8 @@
             }
 
             const currentQuestion = questions[currentQuestionIndex];
-            isAnswered = false;
-            
+            userSelectionIndex = null; // Réinitialiser la sélection pour la nouvelle question
+
             // Construction du contenu HTML de la question
             let htmlContent = `
                 <div class="mb-6">
@@ -71,21 +80,35 @@
                 </div>
                 <div id="options-container" class="space-y-4">
             `;
-            
+
             currentQuestion.answerOptions.forEach((option, index) => {
+                // Utilisation d'un attribut data-index pour identifier l'option
                 htmlContent += `
-                    <button class="option-button w-full text-left p-4 rounded-lg text-gray-700 focus:outline-none"
+                    <button class="option-button w-full text-left p-4 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none"
                             data-index="${index}"
                             onclick="handleAnswer(this, ${index})">
                         ${option.text}
                     </button>
                 `;
             });
-            
+
             htmlContent += `</div>`;
-            
+
+            // Ajout du bouton de validation, initialement désactivé
+            htmlContent += `
+                <div class="mt-6 flex justify-end">
+                    <button id="validate-button" 
+                            class="px-6 py-3 bg-gray-400 text-white font-semibold rounded-lg shadow-md focus:outline-none transition-colors duration-200 cursor-not-allowed"
+                            onclick="validateAnswer()"
+                            disabled>
+                        ${currentQuestionIndex === questions.length - 1 ? 'Terminer l\'Évaluation' : 'Valider et Suivant'}
+                    </button>
+                </div>
+            `;
+
+
             mainArea.innerHTML = htmlContent;
-            
+
             // Rendre les formules mathématiques
             renderMath();
         }
@@ -96,55 +119,69 @@
         function renderMath() {
             renderMathInElement(document.getElementById('main-area'), {
                 delimiters: [
-                    {left: "$$", right: "$$", display: true},
-                    {left: "$", right: "$", display: false},
-                    {left: "\\(", right: "\\)", display: false},
-                    {left: "\\[", right: "\\]", display: true}
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
                 ],
                 throwOnError: false
             });
         }
 
         /**
-         * Gère la sélection d'une réponse par l'utilisateur.
+         * Gère la SELECTION d'une réponse par l'utilisateur.
          */
         function handleAnswer(selectedButton, selectedIndex) {
-            if (isAnswered) return; 
+            userSelectionIndex = selectedIndex; // Mémoriser la sélection
 
-            isAnswered = true;
-            const currentQuestion = questions[currentQuestionIndex];
-            const isCorrect = currentQuestion.answerOptions[selectedIndex].isCorrect;
-
-            // Désactiver tous les boutons et marquer la sélection
+            // 1. Gérer le style : retirer la sélection précédente et ajouter la nouvelle
             const allButtons = document.querySelectorAll('.option-button');
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected-option');
+            });
+
+            // Ajouter le style de sélection au bouton cliqué
+            selectedButton.classList.add('selected-option');
+
+            // 2. Activer le bouton de validation
+            const validateButton = document.getElementById('validate-button');
+            validateButton.disabled = false;
+            validateButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+            validateButton.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+        }
+
+
+        /**
+         * Valide la réponse sélectionnée et passe à la question suivante.
+         */
+        function validateAnswer() {
+            if (userSelectionIndex === null) {
+                // Cette alerte ne devrait pas être nécessaire si le bouton est désactivé
+                alert("Veuillez sélectionner une réponse avant de valider.");
+                return;
+            }
+
+            const currentQuestion = questions[currentQuestionIndex];
+            const isCorrect = currentQuestion.answerOptions[userSelectionIndex].isCorrect;
+
+            const validateButton = document.getElementById('validate-button');
+            validateButton.disabled = true;
+
+            const allButtons = document.querySelectorAll('.option-button');
+
+            // Mettre à jour le score et donner un feedback visuel
+            if (isCorrect) {
+                score++;
+            }
+
+            // Désactiver tous les boutons d'options après validation
             allButtons.forEach(btn => {
                 btn.disabled = true;
                 btn.classList.remove('hover:bg-gray-100');
             });
-            selectedButton.classList.add('selected-option');
 
-            // Mise à jour du score
-            if (isCorrect) {
-                score++;
-            }
-            
-            // Ajout du bouton Suivant
-            const nextBtnHtml = `
-                <div class="mt-6 flex justify-end">
-                    <button id="next-button" 
-                            class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none transition-colors duration-200"
-                            onclick="nextQuestion()">
-                        ${currentQuestionIndex === questions.length - 1 ? 'Terminer l\'Évaluation' : 'Question Suivante'}
-                    </button>
-                </div>
-            `;
-            selectedButton.closest('#options-container').insertAdjacentHTML('afterend', nextBtnHtml);
-        }
 
-        /**
-         * Passe à la question suivante.
-         */
-        function nextQuestion() {
+            // PASSER IMMÉDIATEMENT À LA QUESTION SUIVANTE (CORRECTION)
             currentQuestionIndex++;
             renderQuestion();
         }
@@ -154,7 +191,7 @@
          */
         function showResults() {
             // Empêche le retour en arrière pour ne pas perdre le score
-            history.pushState(null, null, location.href); 
+            history.pushState(null, null, location.href);
             window.onpopstate = function () {
                 history.go(1);
             };
@@ -175,10 +212,11 @@
                     </div>
                 </div>
             `;
-            
+
             mainArea.innerHTML = resultsHtml;
         }
-        
+
     </script>
 </body>
+
 </html>

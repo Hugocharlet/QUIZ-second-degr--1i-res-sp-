@@ -1,200 +1,202 @@
 const questions = [
-    {
-      "questionNumber": 1,
-      "question": "Développez l'expression suivante en utilisant l'identité remarquable appropriée : $$\\left(2x - \\frac{1}{2}\\right)^2$$",
-      "answerOptions": [
-        { "text": "$4x^2 - 2x + \\frac{1}{4}$", "isCorrect": true },
-        { "text": "$4x^2 - 4x + \\frac{1}{4}$", "isCorrect": false },
-        { "text": "$2x^2 - 2x + \\frac{1}{4}$", "isCorrect": false },
-        { "text": "$4x^2 + 2x + \\frac{1}{4}$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 2,
-      "question": "Factorisez l'expression $9x^2 - 49$ sous la forme factorisée.",
-      "answerOptions": [
-        { "text": "$3(x - 7)(x + 7)$", "isCorrect": false },
-        { "text": "$(3x - 7)^2$", "isCorrect": false },
-        { "text": "$(3x - 7)(3x + 7)$", "isCorrect": true },
-        { "text": "$9(x - 7)(x + 7)$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 3,
-      "question": "Quelle est la forme canonique de la fonction $f(x) = x^2 - 6x + 5$?",
-      "answerOptions": [
-        { "text": "$(x - 3)^2 + 4$", "isCorrect": false },
-        { "text": "$(x + 3)^2 - 4$", "isCorrect": false },
-        { "text": "$(x - 3)^2 - 4$", "isCorrect": true },
-        { "text": "$(x - 6)^2 + 5$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 4,
-      "question": "Développez la forme canonique $f(x) = -2(x + 1)^2 + 3$ pour obtenir la forme développée.",
-      "answerOptions": [
-        { "text": "$-2x^2 + 4x + 1$", "isCorrect": false },
-        { "text": "$-2x^2 - 4x + 1$", "isCorrect": true },
-        { "text": "$-2x^2 + 5$", "isCorrect": false },
-        { "text": "$2x^2 + 4x + 5$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 5,
-      "question": "Calculez le discriminant $\\Delta$ de l'équation $3x^2 - 5x + 2 = 0$.",
-      "answerOptions": [
-        { "text": "$1$", "isCorrect": true },
-        { "text": "$49$", "isCorrect": false },
-        { "text": "$-1$", "isCorrect": false },
-        { "text": "$13$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 6,
-      "question": "Combien de solutions réelles l'équation $-x^2 + 4x - 4 = 0$ possède-t-elle?",
-      "answerOptions": [
-        { "text": "$0$", "isCorrect": false },
-        { "text": "$1$", "isCorrect": true },
-        { "text": "$2$", "isCorrect": false },
-        { "text": "Impossible à déterminer", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 7,
-      "question": "Quelles sont les solutions réelles de l'équation $2x^2 - x - 3 = 0$?",
-      "answerOptions": [
-        { "text": "$x_1 = 1$ et $x_2 = -3/2$", "isCorrect": false },
-        { "text": "$x_1 = -1$ et $x_2 = 3/2$", "isCorrect": true },
-        { "text": "$x_1 = -3$ et $x_2 = 1/2$", "isCorrect": false },
-        { "text": "$x_1 = -1/2$ et $x_2 = 3$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 8,
-      "question": "Trouvez une racine évidente de l'équation $5x^2 + 2x - 7 = 0$.",
-      "answerOptions": [
-        { "text": "$0$", "isCorrect": false },
-        { "text": "$1$", "isCorrect": true },
-        { "text": "$-1$", "isCorrect": false },
-        { "text": "$2$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 9,
-      "question": "Sachant que la fonction $f(x) = -3x^2 + 3x + 6$ a pour racines $x_1 = -1$ et $x_2 = 2$, quelle est sa forme factorisée?",
-      "answerOptions": [
-        { "text": "$(x - 1)(x + 2)$", "isCorrect": false },
-        { "text": "$3(x + 1)(x - 2)$", "isCorrect": false },
-        { "text": "$-3(x + 1)(x - 2)$", "isCorrect": true },
-        { "text": "$-3(x - 1)(x + 2)$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 10,
-      "question": "Quelle est la solution de l'inéquation $x^2 > 16$?",
-      "answerOptions": [
-        { "text": "$x \\in ]4; +\\infty[$", "isCorrect": false },
-        { "text": "$x \\in ]-4; 4[$", "isCorrect": false },
-        { "text": "$x \\in ]-\\infty; -4[ \\cup ]4; +\\infty[$", "isCorrect": true },
-        { "text": "$x \\in ]-\\infty; -4[ \\cap ]4; +\\infty[$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 11,
-      "question": "Résolvez l'inéquation du second degré suivante : $x^2 - 5x + 6 \\le 0$.",
-      "answerOptions": [
-        { "text": "$x \\in [2; 3]$", "isCorrect": true },
-        { "text": "$x \\in ]-\\infty; 2] \\cup [3; +\\infty[$", "isCorrect": false },
-        { "text": "$x \\in ]-\\infty; 2[ \\cup ]3; +\\infty[$", "isCorrect": false },
-        { "text": "$x \\in ]2; 3[$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 12,
-      "question": "Quel est l'axe de symétrie de la parabole représentant la fonction $f(x) = -4x^2 + 16x - 1$?",
-      "answerOptions": [
-        { "text": "$x = -2$", "isCorrect": false },
-        { "text": "$x = 4$", "isCorrect": false },
-        { "text": "$x = 2$", "isCorrect": true },
-        { "text": "$x = 8$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 13,
-      "question": "La fonction $g(x) = 0.5x^2 - 3x + 1$ admet-elle un maximum ou un minimum? Quelle est sa valeur?",
-      "answerOptions": [
-        { "text": "Un Maximum de $1$", "isCorrect": false },
-        { "text": "Un Minimum de $-3.5$", "isCorrect": true },
-        { "text": "Un Minimum de $3$", "isCorrect": false },
-        { "text": "Un Maximum de $-3.5$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 14,
-      "question": "Quelle est la nature de la variation de la fonction $h(x) = -2x^2 - 8x + 5$?",
-      "answerOptions": [
-        { "text": "Croissante puis décroissante", "isCorrect": true },
-        { "text": "Décroissante puis croissante", "isCorrect": false },
-        { "text": "Toujours croissante", "isCorrect": false },
-        { "text": "Toujours décroissante", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 15,
-      "question": "L'aire d'un rectangle est donnée par l'expression $A(x) = x^2 - 10x + 21$. Pour quelle valeur de $x$ l'aire est-elle nulle?",
-      "answerOptions": [
-        { "text": "$x=10$ ou $x=21$", "isCorrect": false },
-        { "text": "$x=10$", "isCorrect": false },
-        { "text": "$x=3$ ou $x=7$", "isCorrect": true },
-        { "text": "$x=3$ seulement", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 16,
-      "question": "Le bénéfice $B(x)$ (en milliers d'euros) d'une entreprise est modélisé par $B(x) = -x^2 + 12x - 20$, où $x$ est la quantité produite (en tonnes). Quelle quantité $x$ maximise le bénéfice?",
-      "answerOptions": [
-        { "text": "$x = 12$ tonnes", "isCorrect": false },
-        { "text": "$x = 6$ tonnes", "isCorrect": true },
-        { "text": "$x = 4$ tonnes", "isCorrect": false },
-        { "text": "$x = 16$ tonnes", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 17,
-      "question": "Quel est le signe de l'expression $f(x) = x^2 + x + 1$ pour tout $x \\in \\mathbb{R}$?",
-      "answerOptions": [
-        { "text": "Négatif ($\\le 0$)", "isCorrect": false },
-        { "text": "Positif ($> 0$)", "isCorrect": true },
-        { "text": "Positif pour $x > 0$ et Négatif pour $x < 0$", "isCorrect": false },
-        { "text": "Le signe varie selon $x$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 18,
-      "question": "Pour quelle(s) valeur(s) de $x$ l'expression $E(x) = -9x^2 + 6x - 1$ est-elle positive ou nulle?",
-      "answerOptions": [
-        { "text": "Jamais", "isCorrect": false },
-        { "text": "$x \\in ]-\\infty; 1/3[ \\cup ]1/3; +\\infty[$", "isCorrect": false },
-        { "text": "$x \\in \\emptyset$", "isCorrect": false },
-        { "text": "$x = 1/3$", "isCorrect": true }
-      ]
-    },
-    {
-      "questionNumber": 19,
-      "question": "Trouvez le coefficient $a$ de la fonction $f(x) = a(x-\\alpha)^2 + \\beta$ dont le sommet est $S(2; -1)$ et qui passe par le point $P(0; 7)$.",
-      "answerOptions": [
-        { "text": "$a = 2$", "isCorrect": true },
-        { "text": "$a = 4$", "isCorrect": false },
-        { "text": "$a = -2$", "isCorrect": false },
-        { "text": "$a = 8$", "isCorrect": false }
-      ]
-    },
-    {
-      "questionNumber": 20,
-      "question": "Si le discriminant $\\Delta$ d'une équation du second degré est strictement positif ($\\Delta > 0$), alors la parabole associée est nécessairement tournée vers le haut ($a > 0$). (Vrai ou Faux)",
-      "answerOptions": [
-        { "text": "Vrai", "isCorrect": false },
-        { "text": "Faux", "isCorrect": true }
-      ]
-    }
+  {
+    "questionNumber": 1,
+    "question": "Soit la suite définie pour tout $n \\in \\mathbb{N}$ par $U_n = n^2 - 3n + 1$. Quel est le quatrième terme de la suite, noté $U_3$ (si la suite commence à $U_0$)?",
+    "answerOptions": [
+      { "text": "$U_3 = 1$", "isCorrect": true },
+      { "text": "$U_3 = 11$", "isCorrect": false },
+      { "text": "$U_4 = 5$", "isCorrect": false },
+      { "text": "$U_0 = 1$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 2,
+    "question": "Soit la suite $(V_n)$ définie par $V_0 = 5$ et $V_{n+1} = 2V_n - 3$. Calculez le terme $V_2$.",
+    "answerOptions": [
+      { "text": "$V_2 = 11$", "isCorrect": true },
+      { "text": "$V_2 = 7$", "isCorrect": false },
+      { "text": "$V_2 = 8$", "isCorrect": false },
+      { "text": "$V_2 = 17$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 3,
+    "question": "Une suite numérique $(U_n)$ est dite **décroissante** si, pour tout entier naturel $n$, on a :",
+    "answerOptions": [
+      { "text": "$U_{n+1} \\le U_n$", "isCorrect": true },
+      { "text": "$U_{n+1} < U_n$", "isCorrect": false },
+      { "text": "$U_{n+1} \\ge U_n$", "isCorrect": false },
+      { "text": "$U_{n+1} = U_n$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 4,
+    "question": "Soit la suite $(U_n)$ définie par $U_n = -n^2 + 5n$ pour $n \\in \\mathbb{N}$. Quelle est la nature de sa monotonie (en utilisant la méthode de la différence $U_{n+1} - U_n$)?",
+    "answerOptions": [
+      { "text": "Croissante jusqu'à $n=2$ puis décroissante", "isCorrect": true },
+      { "text": "Décroissante dès le premier terme", "isCorrect": false },
+      { "text": "Toujours croissante", "isCorrect": false },
+      { "text": "Alternée", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 5,
+    "question": "Soit $(V_n)$ une suite définie pour $n \\ge 1$ par $V_n = \\frac{4^n}{n!}$. La suite est-elle strictement décroissante à partir d'un certain rang? Si oui, lequel (en utilisant la méthode du quotient $\\frac{V_{n+1}}{V_n}$)?",
+    "answerOptions": [
+      { "text": "$n \\ge 4$", "isCorrect": true },
+      { "text": "$n \\ge 3$", "isCorrect": false },
+      { "text": "$n \\ge 2$", "isCorrect": false },
+      { "text": "Jamais strictement décroissante", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 6,
+    "question": "La suite $(U_n)$ est définie par $U_n = 5n - 8$. Quelle est sa nature et sa raison $r$?",
+    "answerOptions": [
+      { "text": "Arithmétique de raison $r = 5$", "isCorrect": true },
+      { "text": "Arithmétique de raison $r = -8$", "isCorrect": false },
+      { "text": "Géométrique de raison $q = 5$", "isCorrect": false },
+      { "text": "Arithmétique de raison $r = 5n$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 7,
+    "question": "Soit une suite arithmétique de premier terme $U_0 = 10$ et de raison $r = -3$. Calculez le terme $U_{15}$.",
+    "answerOptions": [
+      { "text": "$U_{15} = -35$", "isCorrect": true },
+      { "text": "$U_{15} = -45$", "isCorrect": false },
+      { "text": "$U_{15} = 55$", "isCorrect": false },
+      { "text": "$U_{15} = 35$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 8,
+    "question": "Une suite arithmétique $(U_n)$ vérifie $U_5 = 16$ et $U_{10} = 31$. Quelle est sa raison $r$?",
+    "answerOptions": [
+      { "text": "$r = 3$", "isCorrect": true },
+      { "text": "$r = 1.5$", "isCorrect": false },
+      { "text": "$r = 5$", "isCorrect": false },
+      { "text": "$r = 15$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 9,
+    "question": "Calculez la somme $S = 1 + 4 + 7 + \\dots + 40$.",
+    "answerOptions": [
+      { "text": "$S = 287$", "isCorrect": true },
+      { "text": "$S = 280$", "isCorrect": false },
+      { "text": "$S = 140$", "isCorrect": false },
+      { "text": "$S = 39$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 10,
+    "question": "Calculez la somme $T = 2 + 4 + 6 + \\dots + 50$.",
+    "answerOptions": [
+      { "text": "$T = 650$", "isCorrect": true },
+      { "text": "$T = 625$", "isCorrect": false },
+      { "text": "$T = 52$", "isCorrect": false },
+      { "text": "$T = 500$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 11,
+    "question": "La suite $(V_n)$ est définie par $V_n = 7 \\times (\\frac{1}{2})^n$. Quelle est sa nature et sa raison $q$?",
+    "answerOptions": [
+      { "text": "Géométrique de raison $q = 1/2$", "isCorrect": true },
+      { "text": "Arithmétique de raison $r = 1/2$", "isCorrect": false },
+      { "text": "Géométrique de raison $q = 7$", "isCorrect": false },
+      { "text": "Géométrique de raison $q = 2$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 12,
+    "question": "Soit une suite géométrique de premier terme $U_0 = 4$ et de raison $q = 3$. Calculez le terme $U_4$.",
+    "answerOptions": [
+      { "text": "$U_4 = 324$", "isCorrect": true },
+      { "text": "$U_4 = 108$", "isCorrect": false },
+      { "text": "$U_4 = 12$", "isCorrect": false },
+      { "text": "$U_4 = 81$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 13,
+    "question": "Une suite géométrique $(U_n)$ vérifie $U_2 = 12$ et $U_5 = 324$. Quelle est sa raison $q$?",
+    "answerOptions": [
+      { "text": "$q = 3$", "isCorrect": true },
+      { "text": "$q = 9$", "isCorrect": false },
+      { "text": "$q = 27$", "isCorrect": false },
+      { "text": "$q = 1/3$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 14,
+    "question": "Calculez la somme $S = 1 + 2 + 4 + 8 + \\dots + 256$.",
+    "answerOptions": [
+      { "text": "$S = 511$", "isCorrect": true },
+      { "text": "$S = 512$", "isCorrect": false },
+      { "text": "$S = 255$", "isCorrect": false },
+      { "text": "$S = 257$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 15,
+    "question": "Soit la suite $(U_n)$ définie par $U_n = 2n + 10$. À partir de quel rang $n$ a-t-on $U_n > 100$?",
+    "answerOptions": [
+      { "text": "$n = 46$", "isCorrect": true },
+      { "text": "$n = 45$", "isCorrect": false },
+      { "text": "$n = 50$", "isCorrect": false },
+      { "text": "$n = 91$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 16,
+    "question": "Quel est le résultat affiché par l'algorithme ci-dessous si la variable d'entrée $N=3$? (Algorithme: U = 5 ; Pour i allant de 1 à N : U = U + 2 ; Afficher U)",
+    "answerOptions": [
+      { "text": "$11$", "isCorrect": true },
+      { "text": "$13$", "isCorrect": false },
+      { "text": "$7$", "isCorrect": false },
+      { "text": "$9$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 17,
+    "question": "Quel rang $N$ est affiché par l'algorithme suivant si $U_0=1$ et $Seuil=30$? (Algorithme: U=1, N=0 ; Tant que U <= Seuil : U = U * 2 ; N = N + 1 ; Afficher N)",
+    "answerOptions": [
+      { "text": "$N = 5$", "isCorrect": true },
+      { "text": "$N = 4$", "isCorrect": false },
+      { "text": "$N = 30$", "isCorrect": false },
+      { "text": "$N = 6$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 18,
+    "question": "On place $C_0 = 1000$ euros à un taux d'intérêt simple de $5\\%$ par an. Soit $C_n$ le capital après $n$ années. Quelle est la nature de la suite $(C_n)$?",
+    "answerOptions": [
+      { "text": "Arithmétique de raison $r=50$", "isCorrect": true },
+      { "text": "Géométrique de raison $q=1.05$", "isCorrect": false },
+      { "text": "Arithmétique de raison $r=1050$", "isCorrect": false },
+      { "text": "Géométrique de raison $q=0.05$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 19,
+    "question": "On place $C_0 = 1000$ euros à un taux d'intérêt composé de $5\\%$ par an. Quel est le capital $C_3$ après 3 ans?",
+    "answerOptions": [
+      { "text": "$1157.63 \\text{ euros}$", "isCorrect": true },
+      { "text": "$1150 \\text{ euros}$", "isCorrect": false },
+      { "text": "$1100 \\text{ euros}$", "isCorrect": false },
+      { "text": "$1050 \\text{ euros}$", "isCorrect": false }
+    ]
+  },
+  {
+    "questionNumber": 20,
+    "question": "Dans le vocabulaire des suites, que signifie l'expression 'suite alternée'?",
+    "answerOptions": [
+      { "text": "Une suite dont les termes changent de signe (positif, négatif, positif, négatif...).", "isCorrect": true },
+      { "text": "Une suite dont le sens de variation change à chaque terme (croissante, décroissante, croissante...).", "isCorrect": false },
+      { "text": "Une suite dont la forme explicite alterne entre deux formules différentes.", "isCorrect": false },
+      { "text": "Une suite qui n'admet pas de limite.", "isCorrect": false }
+    ]
+  }
 ];
